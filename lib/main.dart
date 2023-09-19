@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
+import 'login/login.dart';
+import 'login/login_choices.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,12 +29,12 @@ class _FirebaseDemonstrationState extends State<FirebaseDemonstration> {
         future: initialization,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return const Text("Error");
+            return const Scaffold(body: Center(child: Text("Error")));
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            return const Text("Connected");
+            return const LoginScreen();
           }
-          return const Text("Loading");
+          return const Scaffold(body: Center(child: Text("Loading")));
         },
       ),
     );
