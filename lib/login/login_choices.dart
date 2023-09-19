@@ -19,11 +19,19 @@ class LoginSelectionScreen extends StatelessWidget {
               height: 100,
             ),
             ElevatedButton.icon(
-                onPressed: () async {
-                  await AuthService().anonymousLogin();
-                },
-                icon: const Icon(Icons.mobile_off_sharp),
-                label: const Text("Anonymous")),
+              onPressed: () async {
+                await AuthService().anonymousLogin();
+              },
+              icon: const Icon(Icons.mobile_off_sharp),
+              label: const Text("Anonymous"),
+            ),
+            ElevatedButton.icon(
+              onPressed: () async {
+                await AuthService().googleLogin();
+              },
+              icon: const Icon(Icons.g_mobiledata),
+              label: const Text("Google"),
+            ),
           ],
         ),
       ),

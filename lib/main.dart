@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
 import 'login/login.dart';
-import 'login/login_choices.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

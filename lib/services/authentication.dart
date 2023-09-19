@@ -18,6 +18,31 @@ class AuthService {
     await FirebaseAuth.instance.signOut();
   }
 
+  /// To make this work, there are a lot of things outside of Flutter to do!
+  ///
+  /// First, make sure you have enabled Google sign in on Firebase by completing
+  /// all the information it is asking you for, especially the support email.
+  ///
+  /// Then, find your SHA-1 certificate fingerprint keystore for your Android Studio
+  /// emulators. This is in C:\Users\you\.android\debug.keystore.
+  ///
+  /// If you have Java problems, consider using the Java that comes with your
+  /// Android Studio. Common issues are version problems and algorithm availability.
+  ///
+  /// The following command should prompt you for a password, which is 'android'
+  /// by default.
+  ///
+  /// ```
+  /// $ keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
+  /// ```
+  ///
+  /// Your will be given two SHAs. SHA-1 and SHA-256. You need the SHA-1.
+  /// It looks like this SHA1: 11:22:33:AA:BB:CC ...
+  ///
+  /// Take note of your SHA-1 certificate fingerprint and copy it into your
+  /// Firebase project settings.
+  /// Firebase > Project Settings > General > Your apps > Android apps >
+  /// SHA certificate fingerprints > Add fingerprint
   Future<void> googleLogin() async {
     try {
       // interact with google to get google credentials
