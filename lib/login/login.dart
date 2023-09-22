@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../home/home.dart';
 import '../services/authentication.dart';
 import 'login_choices.dart';
 
@@ -22,17 +23,7 @@ class LoginScreen extends StatelessWidget {
             body: Center(child: Text("Error")),
           );
         } else if (snapshot.hasData) {
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text("Welcome"),
-            ),
-            body: Center(
-              child: ElevatedButton(
-                child: const Text("Sign out"),
-                onPressed: () => AuthService().signOut(),
-              ),
-            ),
-          );
+          return const HomeScreen();
         } else {
           return const LoginSelectionScreen();
         }

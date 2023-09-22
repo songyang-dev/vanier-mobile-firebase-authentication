@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
@@ -10,7 +11,7 @@ class AuthService {
       await FirebaseAuth.instance.signInAnonymously();
     } on FirebaseAuthException catch (error) {
       // handle error
-      print("firebase auth error: $error");
+      debugPrint("firebase auth error: $error");
     }
   }
 
@@ -59,7 +60,7 @@ class AuthService {
       // sign in onto Firebase, using the google credential
       await FirebaseAuth.instance.signInWithCredential(authCredential);
     } on FirebaseAuthException catch (error) {
-      print("Google sign-in error: $error");
+      debugPrint("Google sign-in error: $error");
     }
   }
 }
